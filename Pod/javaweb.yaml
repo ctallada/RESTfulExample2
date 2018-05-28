@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: restappui
+spec:
+  templates:
+    metadata:
+      labels:
+        app:restappui
+spec:
+  containers:
+  - image: docker.io/chetant/restappapiimage
+    name: war
+    volumeMounts:
+    - mountPath: /app
+      name: app-volume
+  - image: tomcat
+    name: restappui
+    command: [ "/usr/local/tomcat/bin/startup.sh", "run"]
+    volumeMounts:
+    - mountPath: /usr/local/tomcat/webapps
+      name: app-volume
+    ports:
+    - containerPort: 8585
+      hostPort: 8585
+  volumes:
+  - name: app-volume
+    emptyDir: {}
