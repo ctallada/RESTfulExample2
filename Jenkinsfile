@@ -63,7 +63,7 @@ def imagePrune(containerName){
 
 def imageRun(containerName, tag){
     
-    sh "docker run -it -p 8580:8580 restappapiimage:$tag"
+    sh "docker run -i -p 8580:8580 restappapiimage:$tag"
     echo "Image build complete"
 }
 
