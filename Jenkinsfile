@@ -63,7 +63,7 @@ def imagePrune(containerName){
 
 def imageRun(containerName, tag){
     
-    sh "docker run -v target/RESTfulExample2.war:/usr/local/tomcat/webapps/RESTfulExample2.war -i -d -p 8580:8580 restappapiimage:$tag"
+    sh "docker run -v /var/lib/jenkins/workspace/RestAssured/target/RESTfulExample2.war:/usr/local/tomcat/webapps/RESTfulExample2.war -i -d -p 8580:8580 restappapiimage:$tag"
     echo "Image build complete"
 }
 
