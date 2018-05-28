@@ -15,10 +15,10 @@ node {
         checkout scm
     }
 
-    stage('Build'){
+  /*  stage('Build'){
        sh "mvn clean install -X"
     }
-   /* stage('Sonar'){
+    stage('Sonar'){
         try {
             "mvn sonar:sonar"
         } catch(error){
