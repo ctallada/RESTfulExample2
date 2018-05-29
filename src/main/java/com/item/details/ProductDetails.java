@@ -286,7 +286,7 @@ public class ProductDetails {
 	
 	private List<Product> getDefaultProducts(){
 		
-		Product product1 = getProduct("SHIRT", 850, "Mens Wear Dresses", "PETER_ENGLAND");
+		Product product1 = getProduct("SHIRT", 851, "Mens Wear Dresses", "PETER_ENGLAND");
 		Product product2 = getProduct("KURTI", 899, "Womens Wear Dresses", "ALLEND_SOLEY");
 		if(defaultProductsFlag){
 			defaultProductsList = new ArrayList<Product>();
