@@ -4,7 +4,11 @@ def DOCKER_HUB_USER="chetant"
 def HTTP_PORT="8099"
 
 node {
-
+    CONTAINER_ID = sh (
+    script: "docker ps | grep restappapiimage:latest | awk '{print \$1}'",
+    returnStdout: true
+).trim()
+echo "container id: ${CONTAINER_ID}"
    /* stage('Initialize'){
         def dockerHome = tool 'MyDocker'
         def mavenHome  = tool 'MyMaven'
@@ -35,7 +39,7 @@ node {
     }
 	
     stage('Image run'){
-        imageRun(CONTAINER_NAME, CONTAINER_TAG)
+        imageRun(CONTAINER_NAME, CONTAINER_TAG, CONTAINER_ID)
     }
 
    /* stage('Push to Docker Registry'){
@@ -61,8 +65,10 @@ def imagePrune(containerName){
     } catch(error){}
 }
 
-def imageRun(containerName, tag){
-    
+def imageRun(containerName, tag, container_id){
+    if(container_id != ''){
+	sh "docker stop $container_id"
+	}
     sh "docker run -v /var/lib/jenkins/workspace/RestAssured/target/RESTfulExample2.war:/usr/local/tomcat/webapps/RESTfulExample2.war -i -d -p 8580:8580 restappapiimage:$tag"
     echo "Image build complete"
 }
