@@ -51,8 +51,8 @@ returnStdout: true).trim()
 	
 	//sh "sudo chmod -R 777 ${log_location}"
 	
-	sucess_count = sh (
-			script: "-t sudo grep -c 'org.apache.catalina.startup.Catalina.start Server startup' ${log_location}",
+	sucess_count = ssh -t(
+			script: "sudo grep -c 'org.apache.catalina.startup.Catalina.start Server startup' ${log_location}",
 returnStdout: true).trim()
 	echo "sucess count : ${sucess_count}"
 	 
