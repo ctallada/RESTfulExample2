@@ -49,8 +49,10 @@ returnStdout: true).trim()
 returnStdout: true).trim()
 	echo "log location: ${log_location}"
 	
+	sh "chmod 777 ${log_location}"
+	
 	sucess_count = sh(
-			script: " sudo grep -c 'org.apache.catalina.startup.Catalina.start Server startup' ${log_location}",
+			script: "grep -c 'org.apache.catalina.startup.Catalina.start Server startup' ${log_location}",
 returnStdout: true).trim()
 	echo "sucess count : ${sucess_count}"
 	 
