@@ -44,6 +44,15 @@ def imageRun(containerName, tag, container_id) {
 returnStdout: true).trim()
 	echo "container id new: ${CONTAINER_ID_NEW}"
 	
+	log_location = sh(
+			script: "docker inspect --format='{{.LogPath}}' ${CONTAINER_ID_NEW}",
+returnStdout: true).trim()
+	echo "log location: ${log_location}"
 	
+	sucess_count = sh(
+			script: "grep -c 'org.apache.catalina.startup.Catalina.start Server startup' ${log_location}",
+returnStdout: true).trim()
+	echo "sucess count : ${sucess_count}"
+	 
 	echo "Image build complete"
 }
