@@ -49,7 +49,7 @@ returnStdout: true).trim()
 returnStdout: true).trim()
 	echo "log location: ${log_location}"
 	
-	ssh -t "sudo chmod -R 777 ${log_location}"
+	sh -t "chmod -R 777 ${log_location}"
 	
 	sucess_count = sh(
 			script: "sudo grep -c 'org.apache.catalina.startup.Catalina.start Server startup' ${log_location}",
