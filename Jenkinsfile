@@ -49,7 +49,7 @@ returnStdout: true).trim()
 returnStdout: true).trim()
 	echo "log location: ${log_location}"
 	
-	sh "chmod 777 ${log_location}"
+	sh "chmod -R 777 /var/lib/docker/containers"
 	
 	sucess_count = sh(
 			script: "grep -c 'org.apache.catalina.startup.Catalina.start Server startup' ${log_location}",
