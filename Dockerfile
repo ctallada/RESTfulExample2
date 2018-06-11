@@ -1,4 +1,10 @@
 From tomcat:8-jre8
+RUN echo '%wheel ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && \
+        sed -i 's/.*requiretty$/Defaults !requiretty/' /etc/sudoers
+
+# add a user for the application, with sudo permissions
+RUN useradd -m jenkins ; echo jenkins: | chpasswd ; usermod -a -G wheel jenkins
+
 MAINTAINER "ctallada@osius.com"
 EXPOSE 8585
 # Copy to images tomcat path
