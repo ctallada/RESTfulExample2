@@ -51,9 +51,9 @@ returnStdout: true).trim()
 	echo "log location: ${log_location}"
 	//sh "chown -R jenkins:jenkins ${log_location}"
 	sh "whoami"
-	sh "sudo chown -R jenkins:jenkins '/var/lib/docker/containers/'"
-	sh "sudo chmod -R 777 '/var/lib/docker/containers/'"
-	echo "permission done"
+	//sh "sudo chown -R jenkins:jenkins '/var/lib/docker/containers/'"
+	//sh "sudo chmod -R 777 '/var/lib/docker/containers/'"
+	//echo "permission done"
 	
 	sucess_count = sh(
 			script: "grep -c 'org.apache.catalina.startup.Catalina.start Server startup' ${log_location}",
