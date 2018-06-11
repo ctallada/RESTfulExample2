@@ -15,7 +15,7 @@ def CONTAINER_NAME = "ositest"
 	}
 
 	stage('Build') {
-		sh "mvn clean install"
+		//sh "mvn clean install"
 	}
 
 	stage('Image Build') {
