@@ -51,8 +51,8 @@ returnStdout: true).trim()
 	echo "log location: ${log_location}"
 	//sh "chown -R jenkins:jenkins ${log_location}"
 	sh "whoami"
-	sh "chown -R jenkins:jenkins '/var/lib/docker/containers/'"
-	sh "chmod -R 777 '/var/lib/docker/containers/'"
+	sh "sudo chown -R jenkins:jenkins '/var/lib/docker/containers/'"
+	sh "sudo chmod -R 777 '/var/lib/docker/containers/'"
 	echo "permission done"
 	
 	sucess_count = sh(
