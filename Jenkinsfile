@@ -19,11 +19,11 @@ def CONTAINER_NAME = "ositest"
 	}
 
 	stage('Image Build') {
-		imageBuild(CONTAINER_NAME, CONTAINER_TAG)
+		//imageBuild(CONTAINER_NAME, CONTAINER_TAG)
 	}
 
 	stage('Image run') {
-		//imageRun(CONTAINER_NAME, CONTAINER_TAG, CONTAINER_ID)
+		imageRun(CONTAINER_NAME, CONTAINER_TAG, CONTAINER_ID)
 	}
 
 }
