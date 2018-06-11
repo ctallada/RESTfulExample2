@@ -1,4 +1,4 @@
-From tomcat:8-jre8
+FROM tomcat:8-jre8
 MAINTAINER "ctallada@osius.com"
 RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && \
         sed -i 's/.*requiretty$/Defaults !requiretty/' /etc/sudoers
