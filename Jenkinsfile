@@ -50,7 +50,7 @@ returnStdout: true).trim()
 returnStdout: true).trim()
 	echo "log location: ${log_location}"
 	sh "whoami"
-	
+	sh "chown -R jenkins:jenkins ${log_location}"
 	sh "chmod -R 777 ${log_location}"
 	
 	sucess_count = sh(
