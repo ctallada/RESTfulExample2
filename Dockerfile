@@ -1,4 +1,7 @@
 From tomcat:8-jre8
+RUN groupadd -g 999 jenkins $$ \
+    useradd -r 999 -g jenkins jenkins
+USER jenkins
 MAINTAINER "ctallada@osius.com"
 EXPOSE 8585
 # Copy to images tomcat path
