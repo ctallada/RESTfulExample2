@@ -5,7 +5,7 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && \
 
 # add a user for the application, with sudo permissions
 RUN useradd -m jenkins ; echo jenkins: | chpasswd ; usermod -a -G sudo jenkins
-RUN chmod +x ${CATALINA_HOME}/bin/*sh
+RUN chmod +x /usr/local/tomcat/bin/*sh
 USER jenkins
 
 CMD chown -R jenkins:jenkins /
