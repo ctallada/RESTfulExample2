@@ -35,9 +35,9 @@ def imageBuild(containerName, tag) {
 
 def imageRun(containerName, tag, container_id) {
 	if (container_id != '') {
-		sh "docker stop $container_id"
+	//	sh "docker stop $container_id"
 	}
-	sh "docker run -v /var/lib/jenkins/workspace/RestAssured/target/RESTfulExample2.war:/usr/local/tomcat/webapps/RESTfulExample2.war -i -d -p 8580:8580 restappapiimage:$tag"
+	//sh "docker run -v /var/lib/jenkins/workspace/RestAssured/target/RESTfulExample2.war:/usr/local/tomcat/webapps/RESTfulExample2.war -i -d -p 8580:8580 restappapiimage:$tag"
 	
 	CONTAINER_ID_NEW = sh(
 			script: "docker ps | grep restappapiimage:latest | awk '{print \$1}'",
