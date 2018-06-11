@@ -2,11 +2,11 @@ FROM tomcat:8-jre8
 MAINTAINER "ctallada@osius.com"
 USER root
 ENV CATALINA_HOME /usr/local/tomcat/
-RUN echo '%root ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && \
-        sed -i 's/.*requiretty$/Defaults !requiretty/' /etc/sudoers
+#RUN echo '%root ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && \
+#        sed -i 's/.*requiretty$/Defaults !requiretty/' /etc/sudoers
 
 # add a user for the application, with sudo permissions
-RUN useradd -m jenkins ; echo jenkins: | chpasswd ; usermod -a -G root jenkins
+#RUN useradd -m jenkins ; echo jenkins: | chpasswd ; usermod -a -G root jenkins
 #RUN apt-get update -y && apt-get install -y  procps
 #COPY tomcat.sh $CATALINA_HOME/bin/tomcat.sh
 #RUN chmod +x $CATALINA_HOME/bin/tomcat.sh
