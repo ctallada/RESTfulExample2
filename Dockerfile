@@ -7,7 +7,7 @@ ENV CATALINA_HOME /usr/local/tomcat/
 
 # add a user for the application, with sudo permissions
 #RUN useradd -m jenkins ; echo jenkins: | chpasswd ; usermod -a -G sudo jenkins
-RUN apt-get update -y && apt-get install -y  procps
+#RUN apt-get update -y && apt-get install -y  procps
 #COPY tomcat.sh $CATALINA_HOME/bin/tomcat.sh
 #RUN chmod +x $CATALINA_HOME/bin/tomcat.sh
 
