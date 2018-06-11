@@ -49,7 +49,7 @@ returnStdout: true).trim()
 			script: "docker inspect --format='{{.LogPath}}' ${CONTAINER_ID_NEW}",
 returnStdout: true).trim()
 	echo "log location: ${log_location}"
-	sh "chown -R jenkins:jenkins ${log_location}"
+	//sh "chown -R jenkins:jenkins ${log_location}"
 	sh "whoami"
 	sh "chmod -R 777 ${log_location}"
 	
