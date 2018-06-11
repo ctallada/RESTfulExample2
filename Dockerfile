@@ -11,4 +11,5 @@ EXPOSE 8585
 ADD target/RESTfulExample2.war /usr/local/tomcat/webapps/
 #ADD target/SpringKube.jar SpringKube.jar
 #ENTRYPOINT ["java","-jar","SpringKube.jar"]
+USER jenkins
 CMD ["catalina.sh", "run"]
