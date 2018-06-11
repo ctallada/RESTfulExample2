@@ -4,6 +4,7 @@ def CONTAINER_NAME = "ositest"
 	def HTTP_PORT = "8099"
 
 	node {
+		CONTAINER_ID = ''
 /*	CONTAINER_ID = sh(
 			script: "docker ps | grep restappapiimage:latest | awk '{print \$1}'",
 			returnStdout: true).trim()
