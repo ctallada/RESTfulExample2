@@ -56,11 +56,12 @@ returnStdout: true).trim()
 	//echo "permission done"
 	sucess_count = sh(
 			script: "echo osicpl@1 | sudo -S grep -c 'INFOaa' ${log_location}",
-returnStdout: true).trim()
+returnStdout: true)
 	if(sucess_count != 0){
 		echo "sucess count : ${sucess_count}"
 	}else {
 		echo "hiii"
+		echo "sucess count : ${sucess_count}"
 	}
 	
 	 
