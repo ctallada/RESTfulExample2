@@ -55,7 +55,7 @@ returnStdout: true).trim()
 	sh "echo osicpl@1 | sudo -S chmod -R 777 ${log_location}"
 	//echo "permission done"
 	var sucess_count = sh(
-			script:"osicpl@1 | sudo -S grep -c ' INFOa ' ${log_location}",
+			script:"osicpl@1 | sudo -S grep -c ' INFO ' ${log_location}",
 returnStdout: true).trim()
 	echo "hiii"
 	if(sucess_count != 0){
