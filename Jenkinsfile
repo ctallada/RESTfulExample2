@@ -54,9 +54,8 @@ returnStdout: true).trim()
 	//sh "sudo chown -R jenkins:jenkins '/var/lib/docker/containers/'"
 	sh "echo osicpl@1 | sudo -S chmod -R 777 ${log_location}"
 	//echo "permission done"
-	sucess_count = sh(
-			script: "echo osicpl@1 | sudo -S grep -c ' INFOa ' ${log_location}",
-returnStdout: true)
+	sucess_count = sh  "echo osicpl@1 | sudo -S grep -c ' INFOa ' ${log_location}"
+	
 	if(sucess_count != 0){
 		echo "in if"
 		echo "sucess count : ${sucess_count}"
