@@ -1,5 +1,6 @@
 FROM tomcat:8-jre8
 MAINTAINER "ctallada@osius.com"
+EXPOSE 8585
 USER root
 ENV CATALINA_HOME /usr/local/tomcat/
 #RUN echo '%root ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && \
@@ -26,5 +27,4 @@ ADD target/RESTfulExample2.war /usr/local/jenkins/webapps/
 #ENTRYPOINT ["java","-jar","SpringKube.jar"]
 WORKDIR ${CATALINA_HOME}/bin
 USER jenkins
-EXPOSE 8585
 ENTRYPOINT ["catalina.sh", "run"]
