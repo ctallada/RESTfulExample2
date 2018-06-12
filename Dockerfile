@@ -25,5 +25,6 @@ ADD target/RESTfulExample2.war /usr/local/jenkins/webapps/
 #ADD target/SpringKube.jar SpringKube.jar
 #ENTRYPOINT ["java","-jar","SpringKube.jar"]
 WORKDIR ${CATALINA_HOME}/bin
+USER jenkins
 EXPOSE 8585
 ENTRYPOINT ["catalina.sh", "run"]
