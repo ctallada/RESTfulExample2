@@ -1,6 +1,6 @@
 From tomcat:8-jre8
 MAINTAINER "ctallada@osius.com"
-EXPOSE 8585
+EXPOSE 8080
 # Copy to images tomcat path
 ADD target/RESTfulExample2.war /usr/local/tomcat/webapps/
 #ADD target/SpringKube.jar SpringKube.jar
@@ -27,7 +27,7 @@ RUN groupadd -r jenkins && \
 #RUN chown -R jenkins:jenkins / && \
 #    chmod +x /usr/local/tomcat/bin/catalina.sh
 # Copy to images jenkins path
-ADD target/RESTfulExample2.war /usr/local/jenkins/webapps/
+#ADD target/RESTfulExample2.war /usr/local/jenkins/webapps/
 #ADD target/SpringKube.jar SpringKube.jar
 #ENTRYPOINT ["java","-jar","SpringKube.jar"]
 WORKDIR ${CATALINA_HOME}/bin
