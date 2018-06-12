@@ -55,9 +55,14 @@ returnStdout: true).trim()
 	sh "echo osicpl@1 | sudo -S chmod -R 777 ${log_location}"
 	//echo "permission done"
 	sucess_count = sh(
-			script: "echo osicpl@1 | sudo -S grep -c ' INFO ' ${log_location}",
+			script: "echo osicpl@1 | sudo -S grep -c 'INFO' ${log_location}",
 returnStdout: true).trim()
-	echo "sucess count : ${sucess_count}"
+	if(sucess_count != ''){
+		echo "sucess count : ${sucess_count}"
+	}else {
+		echo "hiii"
+	}
+	
 	 
 	echo "Image build complete"
 }
