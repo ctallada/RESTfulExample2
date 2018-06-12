@@ -55,8 +55,7 @@ returnStdout: true).trim()
 	sh "echo osicpl@1 | sudo -S chmod -R 777 ${log_location}"
 	//echo "permission done"
 	sucess_count = sh(
-			script: "echo osicpl@1 | sudo -S grep -c 'INFOaa' ${log_location}",
-returnStdout: true)
+			script: "echo osicpl@1 | sudo -S grep -c 'INFOaa' ${log_location}")
 	if(sucess_count != 0){
 		echo "in if"
 		echo "sucess count : ${sucess_count}"
