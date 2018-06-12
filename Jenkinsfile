@@ -52,7 +52,7 @@ returnStdout: true).trim()
 	//sh "chown -R jenkins:jenkins ${log_location}"
 	sh "whoami"
 	//sh "sudo chown -R jenkins:jenkins '/var/lib/docker/containers/'"
-	echo "osicpl@1" | sh "sudo -S chmod -R 777 ${log_location}"
+	sh "sudo -S 'osicpl@1' chmod -R 777 ${log_location}"
 	//echo "permission done"
 	sucess_count = sh(
 			script: "grep -c 'org.apache.catalina.startup.Catalina.start Server startup' ${log_location}",
