@@ -57,7 +57,7 @@ returnStdout: true).trim()
 	sucess_count = sh(
 			script: "echo osicpl@1 | sudo -S grep -c 'INFOaa' ${log_location}",
 returnStdout: true).trim()
-	if(sucess_count != ''){
+	if(sucess_count != 0){
 		echo "sucess count : ${sucess_count}"
 	}else {
 		echo "hiii"
