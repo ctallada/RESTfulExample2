@@ -15,7 +15,7 @@ def CONTAINER_NAME = "ositest"
 	}
 
 	stage('Build') {
-		//sh "mvn clean install"
+		sh "mvn clean install"
 	}
 
 	stage('Image Build') {
@@ -57,15 +57,8 @@ returnStdout: true).trim()
 	sucess_count = sh(
 			script:"echo osicpl@1 | sudo -S grep -c 'INFO' ${log_location}",
 returnStdout: true).trim()
-	echo "hiii"
-	if(sucess_count != 0){
-		echo "in if"
+
 		echo "sucess count : ${sucess_count}"
-	}else {
-		echo "in else"
-		echo "sucess count : ${sucess_count}"
-	}
-	
-	 
+		 
 	echo "Image build complete"
 }
