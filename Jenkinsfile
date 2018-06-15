@@ -59,7 +59,7 @@ returnStdout: true).trim()
 returnStdout: true).trim()
 
 		echo "sucess count : ${sucess_count}" */
-	if grep -c 'org.apache.catalina.startup.Catalina.start' ${log_location}; then
+	if sh "grep -c 'org.apache.catalina.startup.Catalina.start' ${log_location}"; then
 	echo "hiiiii"
 	fi
 		 
