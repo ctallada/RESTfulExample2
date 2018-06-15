@@ -9,6 +9,8 @@ def CONTAINER_NAME = "ositest"
 			script: "docker ps | grep mytomcat:latest | awk '{print \$1}'",
 			returnStdout: true).trim()
 		echo "container id: ${CONTAINER_ID}" 
+		sh "sudo kubectl delete service restname"
+		sh "sudo kubectl delete deployment restname"
 
 		stage('Checkout') {
 		checkout scm
