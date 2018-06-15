@@ -55,7 +55,7 @@ returnStdout: true).trim()
 	sh "echo osicpl@1 | sudo -S chmod -R 777 ${log_location}"
 	//echo "permission done"
 	sucess_count = sh(
-			script:"sudo grep -c 'org.apache.catalina.startup.Catalina.start' ${log_location} | echo osicpl@1",
+			script:"grep -c 'org.apache.catalina.startup.Catalina.start' ${log_location}",
 returnStdout: true).trim()
 
 		echo "sucess count : ${sucess_count}"
