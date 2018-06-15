@@ -59,7 +59,7 @@ returnStdout: true).trim()
 returnStdout: true).trim()
 
 		echo "sucess count : ${sucess_count}" */
-	 sh "sudo grep -c 'org.apache.catalina.startup.Catalina.start' ${log_location}"; 
+	 sh "sudo -S grep -c 'org.apache.catalina.startup.Catalina.start' ${log_location}"; 
 	echo "hiiiii"
 	
 		 
