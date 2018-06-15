@@ -17,22 +17,22 @@ def CONTAINER_NAME = "ositest"
 		sh "mvn clean install"
 	}
 
-	/*stage('Image Build') {
+	stage('Image Build') {
 		imageBuild(CONTAINER_NAME, CONTAINER_TAG)
-	} */
+	} 
 
 	stage('Image run') {
 		imageRun(CONTAINER_NAME, CONTAINER_TAG, CONTAINER_ID)
 	}
 
 }
-/*
+
 def imageBuild(containerName, tag) {
 
 	sh "docker build -t restappapiimage:$tag  -t $containerName --pull --no-cache ."
 	echo "Image build complete"
 }
-*/
+
 def imageRun(containerName, tag, container_id) {
 	if (container_id != '') {
 		sh "docker stop $container_id"
