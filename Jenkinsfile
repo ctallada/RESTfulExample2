@@ -18,22 +18,22 @@ def CONTAINER_NAME = "ositest"
 		sh "mvn clean install"
 	}
 
-	stage('Image Build') {
-	//	imageBuild(CONTAINER_NAME, CONTAINER_TAG)
-	}
+	/*stage('Image Build') {
+		imageBuild(CONTAINER_NAME, CONTAINER_TAG)
+	} */
 
 	stage('Image run') {
 		imageRun(CONTAINER_NAME, CONTAINER_TAG, CONTAINER_ID)
 	}
 
 }
-
+/*
 def imageBuild(containerName, tag) {
 
 	sh "docker build -t restappapiimage:$tag  -t $containerName --pull --no-cache ."
 	echo "Image build complete"
 }
-
+*/
 def imageRun(containerName, tag, container_id) {
 	if (container_id != '') {
 		sh "docker stop $container_id"
@@ -57,7 +57,7 @@ returnStdout: true).trim()
 	sh "echo osicpl@1 | sudo -S ls -ltr ${log_location}"
 	//echo "permission done"
 	 sucess_count = sh(
-			script:"echo osicpl@1 | sudo -Ss grep -sc 'INFOaa' ${log_location}",
+			script:"echo osicpl@1 | sudo -Ss grep -sc 'org.apache.catalina.startup.Catalina.start' ${log_location}",
 returnStdout: true).trim()
 
 		echo "sucess count : ${sucess_count}" 
